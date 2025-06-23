@@ -79,7 +79,7 @@ class EnhancedPEFundClassifier:
             },
             'bid_top_pattern': {
                 'pattern': r'\b(?:bid|top)[a-z]*\b',
-                'score': 0.8,
+                'score': 2.5,
                 'description': 'BID/TOP PE indicator pattern'
             }
         }
@@ -88,7 +88,7 @@ class EnhancedPEFundClassifier:
         """Load training data and calculate individual word scores using TF-IDF-like approach"""
         try:
             logger.info("Loading training data from testing_results.xlsx...")
-            df = pd.read_excel("preqin_funds.xlsx")
+            df = pd.read_excel("testing_results.xlsx")
             
             # Clean the data
             df = df.dropna(subset=['NAME', 'IS_PE'])
@@ -180,8 +180,8 @@ class EnhancedPEFundClassifier:
         return {
             'fund': 2.0, 'capital': 1.8, 'equity': 1.6, 'ventures': 1.5, 'partners': 1.4,
             'investment': 1.3, 'management': 1.2, 'advisors': 1.1, 'venture': 1.5, 'opportunities': 1.0,
-            'private': 1.8, 'buyout': 1.6, 'growth': 1.2, 'spv': 1.4, 'holdco': 1.3,
-            'topco': 1.3, 'bidco': 1.3, 'acquico': 1.3, 'newco': 1.2, 'invest': 1.2,
+            'private': 1.8, 'buyout': 1.6, 'growth': 1.2, 'spv': 1.4, 'holdco': 8.0,
+            'topco': 8.0, 'bidco': 8.0, 'acquico': 8.0, 'newco': 8.0, 'invest': 1.2,
             'holding': 1.1, 'seed': 1.4, 'series': 1.3, 'emerging': 1.1, 'impact': 1.0,
             'tech': 0.5, 'healthcare': 0.5, 'energy': 0.5, 'industrial': 0.5,
             'gmbh': -2.0, 'ag': -1.5, 'bank': -1.8, 'insurance': -1.6, 'pension': -1.4,
