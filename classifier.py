@@ -180,8 +180,8 @@ class EnhancedPEFundClassifier:
         return {
             'fund': 2.0, 'capital': 1.8, 'equity': 1.6, 'ventures': 1.5, 'partners': 1.4,
             'investment': 1.3, 'management': 1.2, 'advisors': 1.1, 'venture': 1.5, 'opportunities': 1.0,
-            'private': 1.8, 'buyout': 1.6, 'growth': 1.2, 'spv': 1.4, 'holdco': 1.3,
-            'topco': 1.3, 'bidco': 1.3, 'acquico': 1.3, 'newco': 1.2, 'invest': 1.2,
+            'private': 1.8, 'buyout': 1.6, 'growth': 1.2, 'spv': 1.4, 'holdco': 5,
+            'topco': 5, 'bidco': 5, 'acquico': 5, 'newco': 5, 'invest': 1.2,
             'holding': 1.1, 'seed': 1.4, 'series': 1.3, 'emerging': 1.1, 'impact': 1.0,
             'tech': 0.5, 'healthcare': 0.5, 'energy': 0.5, 'industrial': 0.5,
             'gmbh': -2.0, 'ag': -1.5, 'bank': -1.8, 'insurance': -1.6, 'pension': -1.4,
