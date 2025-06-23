@@ -113,7 +113,27 @@ class EnhancedPEFundClassifier:
             word_scores = self._calculate_word_scores(pe_word_counts, non_pe_word_counts, 
                                                     len(pe_funds), len(non_pe_funds))
             
+            # Apply manual boosts for critical PE structure terms
+            pe_structure_terms = {
+                'holdco': 12.0,
+                'topco': 12.0, 
+                'bidco': 12.0,
+                'acquico': 12.0,
+                'newco': 12.0,
+                'finco': 12.0,
+                'propco': 12.0
+            }
+            
+            for term, boost_score in pe_structure_terms.items():
+                if term in word_scores:
+                    # Keep the higher of calculated vs manual score
+                    word_scores[term] = max(word_scores[term], boost_score)
+                else:
+                    # Add the term if not found in training data
+                    word_scores[term] = boost_score
+            
             logger.info(f"Calculated scores for {len(word_scores)} unique words")
+            logger.info(f"Applied manual boosts for PE structure terms: {list(pe_structure_terms.keys())}")
             
             # Log top positive and negative words for verification
             sorted_words = sorted(word_scores.items(), key=lambda x: x[1], reverse=True)
